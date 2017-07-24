@@ -1,5 +1,5 @@
 #define the location path of the image datasets
-imageLocation = "your location"
+imageLocation = "C:/microsoft R/demo/ORL_DATABASE/ORL92112/bmp"
 dirs=paste("s",1:40,sep = "")
 images = c()
 # using for loops to fill the image paths
@@ -45,6 +45,5 @@ imageToMatch <- data.frame(Image = imageFile, stringsAsFactors = FALSE)
 # MicrosoftML expects a Label column to exist, but it can contain bogus data
 imageToMatch[,"Label"] <- -99 
 
-# Let's use the trained model to predict the type of image
 prediction <- rxPredict(imageModel, data = imageToMatch, extraVarsToWrite = list("Label", "Image"))
 prediction$PredictedLabel
